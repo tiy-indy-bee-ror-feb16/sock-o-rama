@@ -1,0 +1,2 @@
+class Sock < ApplicationRecord
+end
