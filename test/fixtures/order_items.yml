@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order: one
+  sock_size: one
+  quantity: 1
+
+two:
+  order: two
+  sock_size: two
+  quantity: 1
