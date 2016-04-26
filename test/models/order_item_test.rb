@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class OrderItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+
+  end
+
+  def test_something
+
+  end
+
 end
