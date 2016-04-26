@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.0'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'rubyXL'
 
 gem 'carmen', '~> 1.0', '>= 1.0.2'
 
