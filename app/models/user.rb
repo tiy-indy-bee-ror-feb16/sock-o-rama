@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: {
     minimum: 8,
-    too_short: "Password must be at least 6 characters",
+    too_short: "Password must be at least 8 characters",
     maximum: 25,
     too_long: "Password must be less than 25 characters"
   }
