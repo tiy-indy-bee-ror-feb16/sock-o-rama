@@ -1,6 +1,4 @@
 class Size < ApplicationRecord
-  has_many :sock_size
-
+  has_many :socks, through: :sock_sizes
   validates_presence_of :size
-
 end
