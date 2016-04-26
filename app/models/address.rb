@@ -1,4 +1,5 @@
 class Address < ApplicationRecord
+  has_many :orders
   belongs_to :user
   validates :street, :city, :state, :zip, presence: true
   validates_inclusion_of :state, in: Carmen::state_codes('US')
