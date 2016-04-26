@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'carmen', '~> 1.0', '>= 1.0.2'
-
+gem 'rubyXL'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
