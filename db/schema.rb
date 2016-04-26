@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426180252) do
+ActiveRecord::Schema.define(version: 20160426181059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20160426180252) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sock_images", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "sock_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sock_images", ["sock_id"], name: "index_sock_images_on_sock_id", using: :btree
+
   create_table "sock_sizes", force: :cascade do |t|
     t.integer  "size_id"
     t.integer  "sock_id"
@@ -84,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160426180252) do
 
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "sock_sizes"
+  add_foreign_key "sock_images", "socks"
   add_foreign_key "sock_sizes", "sizes"
   add_foreign_key "sock_sizes", "socks"
 end
