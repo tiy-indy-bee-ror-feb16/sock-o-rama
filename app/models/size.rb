@@ -1,7 +1,8 @@
 class Size < ApplicationRecord
   VALID_SIZES = %w(XXS XS S M L XL XXL XXXL).freeze
-  validates :size, presence: true
+  validates_presence_of :size
   validates_inclusion_of :size, in: VALID_SIZES
+  has_many :socks, through: :sock_sizes
   before_validation :uppercase
 
   private

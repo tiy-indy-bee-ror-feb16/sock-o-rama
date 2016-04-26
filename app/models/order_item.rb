@@ -1,4 +1,5 @@
 class OrderItem < ApplicationRecord
   belongs_to :order
-  belongs_to :sock_size
+  has_many :sock_sizes
+  validates :quantity, presence: true, numericality: true
 end
