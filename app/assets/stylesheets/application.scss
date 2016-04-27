@@ -14,15 +14,26 @@
  *= require_self
  */
 
- #navbar-main {
+#navbar-main {
   background-color: #001a33;
+}
 
- }
+#navbar-links li {
 
- #navbar-links li a {
-  color: #f2f2f2;
- }
+  a {
+   color: #f2f2f2;
+  }
+
+  a:hover {
+    color: rgb(0,132,254);
+  }
+
+}
 
  #sockorama-logo img {
-  max-height: 4em;
- }
+   max-height: 4em;
+}
+
+ #search-bar {
+    margin: .75em 0;
+}
