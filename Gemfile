@@ -27,7 +27,6 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
-gem 'rubyXL'
 gem 'carmen', '~> 1.0', '>= 1.0.2'
 gem 'rubyXL'
 gem 'bootstrap-sass'
