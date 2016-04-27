@@ -12,7 +12,9 @@
     <h1 id="header-title">Popular Items<h1>  <%# ERB THIS LATER %>
   </header>
     <div class="row">
-      <%= render 'sock' %>
+      <% @socks.each do |sock| %>
+        <%= render partial: 'sock', locals: { sock: sock } %>
+      <% end %>
     </div>
 
 </div>
