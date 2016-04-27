@@ -1,4 +1,6 @@
 class SockImage < ApplicationRecord
   belongs_to :sock
   validates_presence_of :url
+  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 end
