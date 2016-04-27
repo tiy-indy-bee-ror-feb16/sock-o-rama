@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'carts/show'
+
   resources :socks
   resources :orders
   resources :users
+  resource :cart, only: [:show]
 
   root 'socks#index'
   get '/signup' => "users#new", as: :signup
