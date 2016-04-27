@@ -1,6 +1,8 @@
-<%= simple_form_for User.new, remote: true, validate: true do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.button :submit, "Submit", id: 'create_user' %>
-<% end %>
+<div class="col-lg-4 col-md-4">
+  <%= simple_form_for User.new, html: { class: 'form-horizontal' }, remote: true, validate: true do |f| %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.button :submit, "Submit", id: 'create_user' %>
+  <% end %>
+</div>
