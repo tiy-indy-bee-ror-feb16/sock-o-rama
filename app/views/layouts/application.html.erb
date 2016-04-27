@@ -28,7 +28,7 @@
                   </div>
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6"> <!-- Fix this -->
-                <div class="input-group">
+                <div class="input-group" id="search-bar">
                   <input type="text" class="form-control" placeholder="Search for...">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Go!</button>
@@ -39,13 +39,13 @@
               <div class="collapse navbar-collapse col-sm-3 col-md-3 col-lg-3" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav pull-right" id="navbar-links">
                       <li>
-                          <a href="#">About</a>
+                          <%=link_to "Login", login_path %>
                       </li>
                       <li>
-                          <a href="#">Services</a>
+                          <a href="#">Sign Up</a>
                       </li>
                       <li>
-                          <a href="#">Contact</a>
+                          <a href="#">Shopping Cart</a>
                       </li>
                   </ul>
               </div>
