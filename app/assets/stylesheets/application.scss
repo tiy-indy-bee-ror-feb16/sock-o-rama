@@ -18,8 +18,16 @@
   background-color: #001a33;
 }
 
-#navbar-links li a {
+#navbar-links li {
+
+  a {
    color: #f2f2f2;
+  }
+
+  a:hover {
+    color: rgb(0,132,254);
+  }
+
 }
 
  #sockorama-logo img {

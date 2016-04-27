@@ -7,7 +7,7 @@
     </div>
     <div class="caption">
       <h4 class="pull-right"><%= '$' + sock.price.to_s %></h4>
-      <h4><a href="#"><%= sock.name %></a>
+      <h4><%= link_to sock.name, sock_path(sock) %>
       </h4>
       <p><%= sock.description %></p>
     </div>
