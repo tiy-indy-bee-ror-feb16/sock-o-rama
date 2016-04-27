@@ -5,4 +5,8 @@ class Order < ApplicationRecord
   validates :order_item, :total, presence: true
   validates :total, numericality: true
 
+  def subtotal
+    order_items.map { |item| item.valid? ? (item.quantity * item.price) : 0 }
+  end
+
 end
