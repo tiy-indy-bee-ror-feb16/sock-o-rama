@@ -29,6 +29,15 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['AWS-BUCKET'],
+    :access_key_id => ENV['AWS-ACCESS-KEY'],
+    :secret_access_key => ENV['AWS-SECRET-KEY']
+  }
+}
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.

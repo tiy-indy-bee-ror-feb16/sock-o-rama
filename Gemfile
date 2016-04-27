@@ -33,6 +33,9 @@ gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'simple_form'
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
+gem 'sinatra', github: 'sinatra/sinatra', branch: "master"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -42,6 +45,7 @@ gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'binding_of_caller'
   gem 'better_errors'
   gem 'byebug'
 end

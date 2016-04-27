@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   before_action :require_user, only: [:destroy]
 
   def new
+    render partial: 'form'
   end
 
   def create
