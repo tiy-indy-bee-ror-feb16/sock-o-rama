@@ -42,8 +42,11 @@ gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'better_errors'
+  gem 'capybara'
   gem 'byebug'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :development do
