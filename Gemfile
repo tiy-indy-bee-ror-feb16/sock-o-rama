@@ -34,7 +34,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'simple_form'
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 'sinatra', github: 'sinatra/sinatra', branch: "master"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
