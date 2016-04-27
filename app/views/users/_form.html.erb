@@ -1,5 +1,6 @@
 <div class="col-lg-4 col-md-4">
-  <%= simple_form_for User.new, html: { class: 'form-horizontal' }, remote: true, validate: true do |f| %>
+  <%= simple_form_for User.new, html: { class: 'form-horizontal' }, validate: true do |f| %>
+    <%= f.input :name %>
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
