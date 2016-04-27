@@ -9,15 +9,20 @@ class OrderItemsController < ApplicationController
   end
 
   def update
+    @order_item = @order.order_items.find(params[:item_id])
+    @order_item.update_attributes(order_item_params)
+    @order_items = @order.order_items
   end
 
   def destroy
+    @order.order_items.find(params[:item_id]).destroy
+    @order_items = @order.order_items
   end
 
   private
 
   def order_item_params
-    params.require(:order_item).permit(:quantity, :sock_id)
+    params.require(:order_item).permit(:quantity, :sock_size_id)
   end
 
   def get_order
