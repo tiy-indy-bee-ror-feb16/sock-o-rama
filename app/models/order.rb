@@ -12,11 +12,15 @@ class Order < ApplicationRecord
   end
 
   def tax
-    subtotal * 0.7
+    subtotal * 0.07
   end
 
   def total
     subtotal + tax
+  end
+
+  def update_total
+    self[:price] = total
   end
 
   private
@@ -29,8 +33,6 @@ class Order < ApplicationRecord
     self[:tax] = tax
   end
 
-  def update_total
-    self[:price] = total
-  end
+
 
 end
