@@ -11,10 +11,5 @@ class Sock < ApplicationRecord
       :style => 'B',
       :color => 'C'
     }
-    # :using => {
-    #   # :tsearch => {:prefix => true},
-    #   # :trigram => {},
-    #   # :dmetaphone => {}
-    # }
-    # :ignoring => :accents
+    
 end
