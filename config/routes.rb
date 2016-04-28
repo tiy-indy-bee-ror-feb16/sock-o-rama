@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
-  get 'order_items/create'
-
-  get 'order_items/update'
-
-  get 'order_items/destroy'
-
-  get 'carts/show'
 
   resources :socks
   resources :orders
   resources :users
   resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
   root 'socks#index'
   get '/signup' => "users#new", as: :signup

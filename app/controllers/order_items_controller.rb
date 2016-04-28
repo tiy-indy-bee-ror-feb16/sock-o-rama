@@ -3,7 +3,8 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_item = @order.order_items.new(order_item_params)
-    @order.user = current_user
+    @order_item.quantity = 1
+    @order.user = current_user if current_user
     @order.save
     session[:order_id] = @order.id
     redirect_to :back

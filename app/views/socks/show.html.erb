@@ -16,8 +16,9 @@
       <%= simple_format(@sock.material) %>
     </div>
     <div class="dropdowns">
-      <%= simple_form_for OrderItem.new do |f| %>
-        <%= f.input :quantity, as: :select %>
+      <%= simple_form_for @order_item, :url => order_items_path do |f| %>
+        <%= f.input :sock_size_id, collection: @sock_sizes, include_blank: false, label_method: lambda { |ss| ss.size.size } %>
+        <%= f.submit %>
       <% end %>
     </div>
     <div class="ratings">
