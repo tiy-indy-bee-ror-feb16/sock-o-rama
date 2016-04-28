@@ -34,7 +34,7 @@ class OrderItemsController < ApplicationController
 
   def check_for_existing_item
     existing_item = current_order.order_items.where("sock_size_id = ?", params[:order_item][:sock_size_id])
-    if existing_item
+    if existing_item[0]
       existing_item[0].quantity += 1
       existing_item[0].save
       redirect_to cart_path
