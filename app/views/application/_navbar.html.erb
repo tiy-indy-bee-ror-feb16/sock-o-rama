@@ -14,9 +14,9 @@
           <%= link_to (image_tag 'SOCK-O-RAMA', class: 'img-responsive'), root_path %>
         </div>
       </div>
-      <div class="col-sm-6 col-md-6 col-lg-6"> <!-- Fix this -->
+      <div class="col-sm-6 col-md-6 col-lg-6">
         <div class="input-group" id="search-bar">
-          <input type="text" class="form-control" placeholder="Search for...">
+          <%= render partial: 'socks/search' %>
           <span class="input-group-btn">
             <button class="btn btn-default" type="button">Go!</button>
           </span>

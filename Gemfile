@@ -36,6 +36,7 @@ gem 'simple_form'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'sinatra', github: 'sinatra/sinatra', branch: "master"
+gem 'pg_search'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
