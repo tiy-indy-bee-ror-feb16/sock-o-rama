@@ -37,3 +37,26 @@
  #search-bar {
     margin: .75em 0;
 }
+
+
+
+#footer-container {
+  margin: 3em 0em 0em 0em;
+  background-color: #001a33;
+}
+
+#footer-body {
+  margin: auto;
+  color: #f2f2f2;
+  font-size: 12px;
+}
+
+#footer-content {
+  overflow: hidden;
+
+ #copyright {
+   display: inline-block;
+   -webkit-margin-before: 1.25em;
+   -webkit-margin-after: 1.25em;
+ }
+}
