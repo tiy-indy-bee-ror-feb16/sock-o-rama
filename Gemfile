@@ -27,8 +27,8 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
-gem 'rubyXL'
 gem 'carmen', '~> 1.0', '>= 1.0.2'
+gem 'rubyXL'
 gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
@@ -36,6 +36,7 @@ gem 'simple_form'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'sinatra', github: 'sinatra/sinatra', branch: "master"
+gem 'pg_search'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
