@@ -14,14 +14,9 @@
           <%= link_to (image_tag 'SOCK-O-RAMA', class: 'img-responsive'), root_path %>
         </div>
       </div>
-      <div class="col-sm-6 col-md-6 col-lg-6"> <!-- Fix this -->
-        <div class="input-group" id="search-bar">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
-          </span>
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <%= render partial: 'socks/search' %>
+      </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse col-sm-3 col-md-3 col-lg-3" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right" id="navbar-links">
