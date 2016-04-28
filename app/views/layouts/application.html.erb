@@ -10,38 +10,20 @@
   </head>
 
   <body>
-
-      <%= render 'navbar' %>
-
-      <!-- Page Content -->
-      <div class="container">
-        <div class="row text-center">
-          <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>"><%= value %></div>
-          <% end %>
-        </div>
-        <div class="row">
-
-          <%= yield %>
-
-        </div>
+    <%= render 'navbar' %>
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row text-center">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
       </div>
-      <!-- /.container -->
+      <div class="row">
 
-      <div class="container">
-
-          <hr>
-
-          <!-- Footer -->
-        <footer>
-          <div class="row">
-            <div class="col-lg-12">
-              <p>Copyright &copy; Sock-o-Rama 2016</p>
-            </div>
-          </div>
-        </footer>
+        <%= yield %>
 
       </div>
-
+    </div>
+    <%= render 'footer' %>
   </body>
 </html>
