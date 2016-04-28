@@ -6,17 +6,20 @@ class OrderItemsController < ApplicationController
     @order.user = current_user
     @order.save
     session[:order_id] = @order.id
+    redirect_to :back
   end
 
   def update
     @order_item = @order.order_items.find(params[:item_id])
     @order_item.update_attributes(order_item_params)
     @order_items = @order.order_items
+    redirect_to :back
   end
 
   def destroy
     @order.order_items.find(params[:item_id]).destroy
     @order_items = @order.order_items
+    redirect_to :back
   end
 
   private

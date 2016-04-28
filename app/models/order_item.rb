@@ -6,4 +6,9 @@ class OrderItem < ApplicationRecord
   def price
     sock_size.sock.price
   end
+
+  def total_price
+    price * quantity
+  end
+
 end
