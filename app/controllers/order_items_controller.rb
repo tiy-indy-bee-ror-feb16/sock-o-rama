@@ -1,5 +1,6 @@
 class OrderItemsController < ApplicationController
   before_action :get_order
+  before_action :check_for_existing_item, only: [:create]
 
   def create
     @order_item = @order.order_items.new(order_item_params)
@@ -7,7 +8,7 @@ class OrderItemsController < ApplicationController
     @order.user = current_user if current_user
     @order.save
     session[:order_id] = @order.id
-    redirect_to :back
+    redirect_to cart_path
   end
 
   def update
@@ -29,5 +30,14 @@ class OrderItemsController < ApplicationController
 
   def get_order
     @order = current_order
+  end
+
+  def check_for_existing_item
+    existing_item = current_order.order_items.where("sock_size_id = ?", params[:order_item][:sock_size_id])
+    if existing_item
+      existing_item[0].quantity += 1
+      existing_item[0].save
+      redirect_to cart_path
+    end
   end
 end
