@@ -2,16 +2,18 @@
 
   <div class="row">
     <div class="col-xs-8">
-      <h4><%= product.name %></h4>
+      <h4><%= product.sock.name %></h4>
+      <div class="product-thumb">
+        <%= image_tag(product.sock.sock_images.first.picture(:thumb), class: "thumb-image") %>
+      </div>
     </div>
     <div class="col-xs-4">
 
       <%= form_for order_item, remote: true do |f| %>
-        <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency order_item.unit_price %></span></h4>
         <div class="row">
           <div class="col-xs-4">
             <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
-            <%= f.hidden_field :item_id, value: product.id %>
+            <%= f.hidden_field :product_id, value: product.id %>
           </div>
           <div class="col-xs-8 text-right">
             <div class="btn-group">
@@ -20,6 +22,7 @@
             </div>
           </div>
         </div>
+        <h5 class="text-right">Unit Price: <span style="color: gray"><%= number_to_currency order_item.price %></span></h5>
         <h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency order_item.total_price %></span></h4>
       <% end %>
     </div>
