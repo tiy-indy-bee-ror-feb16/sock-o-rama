@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
 
-  # belongs_to :address # and address belongs to user, user has many addresses will take care of the rest of the relationship?
+  belongs_to :user
   has_many :order_items
   validates :order_items, :total, presence: true
   validates :total, numericality: true
