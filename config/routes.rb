@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :socks
   resources :orders
   resources :users
+  resources :charges, only: [:new, :create]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
