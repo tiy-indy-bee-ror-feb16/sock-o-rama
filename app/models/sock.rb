@@ -12,4 +12,5 @@ class Sock < ApplicationRecord
       :style => 'B',
       :color => 'C'
     }
+
 end
