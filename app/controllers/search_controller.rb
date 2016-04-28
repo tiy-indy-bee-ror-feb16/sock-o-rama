@@ -6,6 +6,6 @@ class SearchController < ApplicationController
     else
       @socks = Sock.search(params[:query]).order(:created_at).page(params[:page])
     end
-  render 'socks/index'
+    render 'socks/index'
   end
 end
