@@ -38,6 +38,8 @@ Rails.application.configure do
   }
 }
 
+config.secret_key_base = ENV["SECRET_KEY_BASE"]
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
