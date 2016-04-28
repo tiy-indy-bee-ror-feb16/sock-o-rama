@@ -4,13 +4,8 @@
   </span> -->
 
 <div class="input-group" id="search-bar">
-  <%= form_tag search_path, method: :get, class: "form-group input-group", id: "search-bar" do %>
-    <%= text_field_tag :query, params[:query], class: "form-controller", placeholder: "Sarch for..." %>
-    <%= submit_tag "Go!", name: nil, class: "btn btn-default" %>
+  <%= form_tag search_path, method: :get, class: "form-group input-group ", id: "search-bar" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Sarch for...", type: "text" %>
+    <%= submit_tag "Go!", name: nil, class: "btn btn-default", type: "button" %>
   <% end %>
 </div>
-
-  <!-- <%= simple_form_for User.new, html: { class: 'form-control form-horizontal' }, validate: true do |f| %>
-    <%= f.input :name %>
-    <%= f.button :submit, "Submit", id: 'create_user' %>
-  <% end %> -->
