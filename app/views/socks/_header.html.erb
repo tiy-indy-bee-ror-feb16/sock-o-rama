@@ -1,0 +1,7 @@
+<% if params[:query] %>
+  <h1 id="header-title">Searched for: <%= params[:query].downcase %></h1>
+  <% elsif params[:query] %>
+    <p>There are no posts containing the term(s) <%= params[:query] %>.</p>
+<% else %>
+  <h1 id="header-title">Popular Items<h1>  <%# ERB THIS LATER %>
+<% end %>
