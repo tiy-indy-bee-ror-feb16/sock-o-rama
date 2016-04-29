@@ -39,6 +39,7 @@ gem 'pg_search'
 gem 'payola-payments'
 gem 'stripe'
 gem 'paper_trail'
+gem 'sendgrid'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
