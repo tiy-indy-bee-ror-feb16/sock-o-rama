@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   post '/login' => "sessions#create", as: :login_create
   get '/logout' => "sessions#destroy", as: :logout
   get '/search' => "search#index", as: :search
+  get '/filter/:filter(.:format)', :to => 'search#index', as: :filter
 end
