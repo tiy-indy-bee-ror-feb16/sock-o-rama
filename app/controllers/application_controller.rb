@@ -15,6 +15,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_address
+    if current_user
+      Address.find(current_user.addresses.first.id)
+    else
+      @user = current_or_guest_user
+      @user.addresses.last
+    end
+  end
+
   private
 
   def current_user
