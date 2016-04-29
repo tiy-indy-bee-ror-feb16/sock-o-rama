@@ -1,6 +1,5 @@
 class AddressesController < ApplicationController
-  include GuestUser
-  before_action :get_user
+  before_action :current_or_guest_user
 
   def new
     user = get_user
