@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_filter :set_paper_trail_whodunnit
   include GuestUser
-
   helper_method :current_user
   helper_method :current_order
 
@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
       Order.new
     end
   end
-
 
   private
 
