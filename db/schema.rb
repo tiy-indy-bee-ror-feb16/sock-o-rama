@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20160429142120) do
     t.integer  "tax"
     t.integer  "subtotal"
     t.integer  "shipping"
+    t.integer  "user_id"
     t.string   "name"
     t.string   "permalink"
-    t.integer  "user_id"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
