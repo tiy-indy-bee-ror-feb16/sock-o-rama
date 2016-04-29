@@ -1,11 +1,28 @@
 class AddressesController < ApplicationController
+  include GuestUser
+  before_action :get_user
 
   def new
-    @address = current_user.addresses.first || Address.new
-    redirect_to edit_address_path(@address) if current_user.addresses.first
+    user = get_user
+    redirect_to order_path(current_order) if user.addresses.any?
+    @address = Address.new
   end
 
   def create
-
+    user = get_user
+    @address = Address.new(address_params)
+    @address.user = user
+    if @address.save
+      redirect_to order_path(current_order)
+    else
+      render :new
+    end
   end
+
+  private
+
+  def address_params
+    params.require(:address).permit(:street, :city, :zip, :state)
+  end
+
 end

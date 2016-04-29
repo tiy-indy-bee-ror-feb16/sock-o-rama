@@ -1,6 +1,2 @@
-<%= simple_form_for @address do |f| %>
-  <%= f.input :street %>
-  <%= f.input :city %>
-  <%= f.input :state %>
-  <%= f.input :zip %>
-<% end %>
+<h2>Address for Order:</h2>
+<%= render partial: 'address_form' %>
