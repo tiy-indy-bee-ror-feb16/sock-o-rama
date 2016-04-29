@@ -2,9 +2,10 @@ class Order < ApplicationRecord
 
   # belongs_to :address # and address belongs to user, user has many addresses will take care of the rest of the relationship?
   has_many :order_items
-  validates :order_items, :total, presence: true
-  validates :total, numericality: true
+  validates :order_items, :price, presence: true
+  validates :price, numericality: true
   before_save :update_subtotal, :update_tax, :update_total
+  include Payola::Sellable
 
   def subtotal
     order_items.map { |item| item.valid? ? (item.quantity * item.price) : 0 }.sum
@@ -26,6 +27,10 @@ class Order < ApplicationRecord
     order_items.inject(0) { |sum, oi| sum += oi.quantity }
   end
 
+  def update_total
+    self[:price] = total
+  end
+
   private
 
   def update_subtotal
@@ -36,8 +41,6 @@ class Order < ApplicationRecord
     self[:tax] = tax
   end
 
-  def update_total
-    self[:total] = total
-  end
+
 
 end
