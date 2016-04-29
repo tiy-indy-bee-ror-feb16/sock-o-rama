@@ -37,6 +37,7 @@ gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem 'sinatra', github: 'sinatra/sinatra', branch: "master"
 gem 'pg_search'
+gem 'acts-as-taggable-on', '~> 3.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

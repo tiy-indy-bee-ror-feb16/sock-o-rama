@@ -1,9 +1,16 @@
 <div class="col-md-3">
-    <p class="lead">Categories</p>
+    <h2 class="">Sockegories</h2>
     <div class="list-group">
-      <a href="#" class="list-group-item">Category 1</a>
-      <a href="#" class="list-group-item">Category 2</a>
-      <a href="#" class="list-group-item">Category 3</a>
+      <ul class="">
+        <h3>Colors</h3>
+        <% @colors.each do |color| %>
+          <li style="list-style-type: none;"><%= link_to color, search_path(query: color) %></li>
+        <% end %>
+        <h3>Styles</h3>
+        <% @styles.each do |style| %>
+          <li style="list-style-type: none;"><%= link_to style, search_path(query: style) %></li>
+        <% end %>
+      </ul>
     </div>
 </div>
 
