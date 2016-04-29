@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20160429142120) do
     t.integer  "tax"
     t.integer  "subtotal"
     t.integer  "shipping"
-    t.integer  "user_id"
     t.string   "name"
     t.string   "permalink"
+    t.integer  "user_id"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -153,16 +153,6 @@ ActiveRecord::Schema.define(version: 20160429142120) do
   end
 
   add_index "payola_subscriptions", ["guid"], name: "index_payola_subscriptions_on_guid", using: :btree
-
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text     "content"
-    t.string   "searchable_type"
-    t.integer  "searchable_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
   create_table "sizes", force: :cascade do |t|
     t.string   "size"

@@ -28,6 +28,17 @@ class Order < ApplicationRecord
     order_items.inject(0) { |sum, oi| sum += oi.quantity }
   end
 
+  def redirect_path(sale)
+    order_items.each do |oi|
+      sock_size = oi.sock_size
+      sock_size.quantity -= oi.quantity
+      sock_size.save!
+    end
+    self.complete = true
+    self.save!
+     "/order/complete/#{sale.id}"
+  end
+
   private
 
   def update_subtotal

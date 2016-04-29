@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   post '/login' => "sessions#create", as: :login_create
   get '/logout' => "sessions#destroy", as: :logout
   get '/search' => "search#index", as: :search
-  get '/order/complete/:id' => 'order#mail_sending'
+  get '/order/complete/:id' => 'orders#mail_sending'
 end

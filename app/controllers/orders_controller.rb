@@ -6,7 +6,10 @@ class OrdersController < ApplicationController
   end
 
   def mail_sending
-    @order = Payola::Sale.find(params[:id])
-    UserNotifierMailer.order_complete(@order)
+    @sale = Payola::Sale.find(params[:id])
+    UserNotifierMailer.order_complete(@sale)
+    session[:order_id] = nil
+    flash[:success] = "Order complete. Email on the way!"
+    redirect_to :root
   end
 end
