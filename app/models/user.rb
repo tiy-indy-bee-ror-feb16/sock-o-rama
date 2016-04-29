@@ -18,6 +18,10 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
+  def redirect_path(order)
+     "/order/complete/#{order.id}"
+   end
+
   private
 
   def email_is_valid_format
