@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
+  mount Payola::Engine => '/payola', as: :payola
   resources :socks
   resources :orders
   resources :users
+  resources :charges, only: [:new, :create]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  resources :addresses
 
   root 'socks#index'
   get '/signup' => "users#new", as: :signup

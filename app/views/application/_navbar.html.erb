@@ -14,11 +14,11 @@
           <%= link_to (image_tag 'SOCK-O-RAMA', class: 'img-responsive'), root_path %>
         </div>
       </div>
-      <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="col-sm-5 col-md-5 col-lg-5">
         <%= render partial: 'socks/search' %>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse col-sm-3 col-md-3 col-lg-3" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse col-sm-4 col-md-4 col-lg-4 pull-right" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right" id="navbar-links">
           <% if current_user %>
             <li><%=link_to "Logout", logout_path %></li>
@@ -27,7 +27,7 @@
             <li><%=link_to "Login", login_path %></li>
             <li><%=link_to "Sign Up", signup_path %></li>
           <% end %>
-          <li><%= link_to "Shopping Cart (#{current_order.order_items.count})", cart_path, id: "cart-link" %></li>
+          <li><%= link_to "Shopping Cart (#{current_order.item_count})", cart_path, id: "cart-link" %></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
