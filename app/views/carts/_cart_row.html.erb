@@ -12,8 +12,10 @@
       <%= form_for order_item, remote: true do |f| %>
         <div class="row">
           <div class="col-xs-4">
+            <h6>Quantity:</h6>
             <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1, max: order_item.sock_size.quantity %>
             <%= f.hidden_field :product_id, value: product.id %>
+            <h6>Size: <%= order_item.sock_size.size.size %></h6>
           </div>
           <div class="col-xs-8 text-right">
             <div class="btn-group">
