@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
 
   belongs_to :user
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   validates :order_items, :total, presence: true
   validates :total, numericality: true
   before_save :update_subtotal, :update_tax, :update_total
