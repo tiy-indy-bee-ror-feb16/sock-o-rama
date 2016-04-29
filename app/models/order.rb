@@ -1,10 +1,10 @@
 class Order < ApplicationRecord
   # belongs_to :address # and address belongs to user, user has many addresses will take care of the rest of the relationship?
   belongs_to :user
-  before_validation :update_subtotal, :update_tax, :update_total
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   validates :order_items, :price, presence: true
   validates :price, numericality: true
+  before_validation :update_subtotal, :update_tax, :update_total
   include Payola::Sellable
   has_paper_trail
 

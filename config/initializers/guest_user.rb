@@ -36,19 +36,9 @@ module GuestUser
   private
 
   def transfer_guest_user_records_to_logged_in_user
-    if current_user.order
-      guest_user_order = guest_user.order
-      guest_user_order.order_items.each do |order_item|
-        order_item.order_id = current_user.order.id
-        order_item.save!
-      end
-      guest_user_order.destroy
-    else
-      order = guest_user.order
-      order.user_id = current_user.id
-      order.save!
-    end
-
+    order = current_order
+    order.user_id = current_user.id
+    order.save!
   end
 
   def create_guest_user

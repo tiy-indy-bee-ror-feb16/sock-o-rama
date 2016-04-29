@@ -11,13 +11,5 @@
       </h4>
       <p><%= sock.description %></p>
     </div>
-    <div class="ratings">
-      <p class="pull-right sock-index-img image-responsive"><%= num = Random.new.rand(20) %> reviews</p>
-      <p>
-        <% ((num/5)+1).times do %>
-          <span class="glyphicon glyphicon-star"></span>
-        <% end %>
-      </p>
-    </div>
   </div>
 </div>

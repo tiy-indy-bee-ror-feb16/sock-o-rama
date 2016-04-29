@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :orders
-  has_many :addresses
+  has_many :orders, dependent: :destroy
+  has_many :addresses, dependent: :destroy
 
   before_validation :downcase_email
   validates :name, :email, :role, presence: true

@@ -7,8 +7,8 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_item_params)
     @order_item.quantity = 1
     @order.user = current_or_guest_user
-    @order.permalink ||= SecureRandom.hex(10).to_s
-    @order.name ||= SecureRandom.hex(10).to_s
+    @order.permalink ||= SecureRandom.hex(5).to_s
+    @order.name ||= "order-#{SecureRandom.hex(5)}"
     @order.save!
     session[:order_id] = @order.id
     session[:permalink] = @order.permalink
