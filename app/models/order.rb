@@ -10,12 +10,20 @@ class Order < ApplicationRecord
     order_items.map { |item| item.valid? ? (item.quantity * item.price) : 0 }.sum
   end
 
+  def shipping
+    item_count * 2
+  end
+
   def tax
-    subtotal * 0.7
+    subtotal * 0.07
   end
 
   def total
-    subtotal + tax
+    subtotal + tax + shipping
+  end
+
+  def item_count
+    order_items.inject(0) { |sum, oi| sum += oi.quantity }
   end
 
   private
