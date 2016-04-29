@@ -1,10 +1,10 @@
 class Order < ApplicationRecord
 
   # belongs_to :address # and address belongs to user, user has many addresses will take care of the rest of the relationship?
+  before_save :update_subtotal, :update_tax, :update_total
   has_many :order_items
   validates :order_items, :price, presence: true
   validates :price, numericality: true
-  before_save :update_subtotal, :update_tax, :update_total
   include Payola::Sellable
   has_paper_trail
 
@@ -35,7 +35,7 @@ class Order < ApplicationRecord
   end
 
   def update_total
-    self[:price] = total*100
+    self[:price] = total * 100
   end
 
   def update_tax
