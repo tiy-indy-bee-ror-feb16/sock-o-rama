@@ -38,6 +38,7 @@ gem 'sinatra', github: 'sinatra/sinatra', branch: "master"
 gem 'pg_search'
 gem 'payola-payments'
 gem 'stripe'
+gem 'paper_trail'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

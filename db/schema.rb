@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428204607) do
+ActiveRecord::Schema.define(version: 20160429142120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,11 @@ ActiveRecord::Schema.define(version: 20160428204607) do
     t.integer  "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "name"
   end
+
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id"
@@ -47,7 +51,10 @@ ActiveRecord::Schema.define(version: 20160428204607) do
     t.integer  "shipping"
     t.string   "name"
     t.string   "permalink"
+    t.integer  "user_id"
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "payola_affiliates", force: :cascade do |t|
     t.string   "code"
@@ -199,8 +206,21 @@ ActiveRecord::Schema.define(version: 20160428204607) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+
+  add_foreign_key "addresses", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "sock_sizes"
+  add_foreign_key "orders", "users"
   add_foreign_key "sock_images", "socks"
   add_foreign_key "sock_sizes", "sizes"
   add_foreign_key "sock_sizes", "socks"

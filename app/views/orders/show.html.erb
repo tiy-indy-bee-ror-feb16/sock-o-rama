@@ -1,0 +1,23 @@
+<h2>Your Order:</h2>
+<h4>Order Items:</h4>
+<% current_order.order_items.each do |order_item| %>
+  <%= render partial: 'order_items', locals: { oi: order_item }%>
+<% end %>
+<div id="order-totals">
+  <%= link_to cart_path, class: "btn btn-primary", id: "continue-shopping" do %>
+    <i class="glyphicon glyphicon-shopping-cart"></i> Edit Order
+  <% end %>
+</div>
+
+<div class="address">
+  <h4>Order Address:</h4>
+  <%= render partial: 'address', locals: { address: @address } %>
+  <%= link_to "Edit Address", edit_address_path(@address), class: "btn btn-primary" %>
+</div>
+<h5 class="text-right">Subtotal: <span style="color: gray"><%= number_to_currency current_order.subtotal %></span></h5>
+<h5 class="text-right">Shipping: <span style="color: gray"><%= number_to_currency current_order.shipping %></span></h5>
+<h5 class="text-right">Tax: <span style="color: gray"><%= number_to_currency current_order.tax %></span></h5>
+<h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency current_order.total %></span></h4>
+<div class="pull-right">
+  <%= render 'payola/transactions/checkout', sellable: current_order %>
+</div>
