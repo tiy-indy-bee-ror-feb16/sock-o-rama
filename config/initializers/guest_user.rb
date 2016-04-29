@@ -36,25 +36,19 @@ module GuestUser
   private
 
   def transfer_guest_user_records_to_logged_in_user
-    if current_user.shopping_cart
-      guest_user_shopping_cart = guest_user.shopping_cart
-      guest_user_shopping_cart.shopping_cart_items.each do |shopping_cart_item|
-        shopping_cart_item.shopping_cart_id = current_user.shopping_cart.id
-        shopping_cart_item.save!
+    if current_user.order
+      guest_user_order = guest_user.order
+      guest_user_order.order_items.each do |order_item|
+        order_item.order_id = current_user.order.id
+        order_item.save!
       end
-      guest_user_shopping_cart.destroy
+      guest_user_order.destroy
     else
-      shopping_cart = guest_user.shopping_cart
-      shopping_cart.user_id = current_user.id
-      shopping_cart.save!
+      order = guest_user.order
+      order.user_id = current_user.id
+      order.save!
     end
 
-    if guest_user.favourites.any?
-      guest_user.favourites.each do |favourite|
-        favourite.user_id = current_user.id
-        favourite.save!
-      end
-    end
   end
 
   def create_guest_user
