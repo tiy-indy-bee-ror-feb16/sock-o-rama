@@ -18,6 +18,6 @@
 <h5 class="text-right">Shipping: <span style="color: gray"><%= number_to_currency current_order.shipping %></span></h5>
 <h5 class="text-right">Tax: <span style="color: gray"><%= number_to_currency current_order.tax %></span></h5>
 <h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency current_order.total %></span></h4>
-<%= link_to new_address_path, class: "btn btn-success pull-right" do %>
-  <i class="glyphicon glyphicon-credit-card"></i> Check Out Now
-<% end %>
+<div class="pull-right">
+  <%= render 'payola/transactions/checkout', sellable: current_order %>
+</div>
