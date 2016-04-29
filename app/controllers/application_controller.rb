@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def get_user
+    current_user || guest_user
+  end
+
   def disallow_user
     if current_user
       flash[:info] = "You're already logged in"

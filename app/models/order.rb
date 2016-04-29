@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
-
   # belongs_to :address # and address belongs to user, user has many addresses will take care of the rest of the relationship?
-  before_save :update_subtotal, :update_tax, :update_total
+  belongs_to :user
+  before_validation :update_subtotal, :update_tax, :update_total
   has_many :order_items
   validates :order_items, :price, presence: true
   validates :price, numericality: true

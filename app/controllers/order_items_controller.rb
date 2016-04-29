@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+  include GuestUser
   before_action :get_order
   before_action :check_for_existing_item, only: [:create]
   require 'securerandom'
@@ -6,7 +7,7 @@ class OrderItemsController < ApplicationController
   def create
     @order_item = @order.order_items.new(order_item_params)
     @order_item.quantity = 1
-    # @order.user = current_user if current_user
+    @order.user = current_user || guest_user
     @order.permalink ||= SecureRandom.hex(10).to_s
     @order.name ||= SecureRandom.hex(10).to_s
     @order.save!
